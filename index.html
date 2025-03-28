@@ -83,7 +83,7 @@
 
         .tableau-container {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
             background: #fff;
@@ -91,12 +91,13 @@
             border: 4px solid #4ecdc4;
         }
 
-        .tableau-container div {
+        .tableau-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            border: none;
         }
 
         footer {
@@ -146,7 +147,9 @@
             <h2>Interactive Tableau Dashboard <span class="emoji-spin">📊</span></h2>
             <p>Explore our amazing data visualizations below! 🎉</p>
             <div class="tableau-container">
-                <div id="tableauViz"></div>
+                <iframe src="https://public.tableau.com/views/SausageNewLetsPray/Dashboard2?:language=en-US&:embed=y&:display_count=n&:origin=viz_share_link&:showVizHome=n&:toolbar=n"
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
@@ -174,23 +177,8 @@
         <p>© 2025 Data Analytics Hub | Made with ❤️ & ☕</p>
     </footer>
 
-    <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
     <script>
-        // Tableau JavaScript API Embed
         document.addEventListener('DOMContentLoaded', () => {
-            const placeholderDiv = document.getElementById('tableauViz');
-            const url = 'https://public.tableau.com/views/SausageNewLetsPray/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link';
-            const options = {
-                width: '100%',
-                height: '100%',
-                hideTabs: true,
-                hideToolbar: true,
-                onFirstInteractive: () => {
-                    console.log('Tableau dashboard loaded successfully!');
-                }
-            };
-            const viz = new tableau.Viz(placeholderDiv, url, options);
-
             // Smooth scrolling for nav links
             document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -211,6 +199,11 @@
                     section.style.transform = 'scale(1)';
                 });
             });
+
+            // Check if iframe loaded
+            const iframe = document.querySelector('.tableau-container iframe');
+            iframe.onload = () => console.log('Tableau iframe loaded successfully');
+            iframe.onerror = () => console.error('Error loading Tableau iframe');
         });
     </script>
 </body>
