@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Hub 📊✨</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        nav {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #6e8efb;
+            text-decoration: none;
+            margin: 0 25px;
+            font-weight: bold;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #ff6b6b;
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        h2 {
+            color: #6e8efb;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .main-paragraph {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .tableau-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 10px;
+            border: 4px solid #4ecdc4;
+        }
+
+        .tableau-container div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .emoji-spin {
+            display: inline-block;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Data Analytics Hub 📈🚀</h1>
+    </header>
+
+    <nav>
+        <a href="#dashboard">Dashboard 🌟</a>
+        <a href="#insights">Insights 💡</a>
+        <a href="#trends">Trends 📉</a>
+        <a href="#about">About Us 😎</a>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to Our Analytics World 🌍</h2>
+            <p class="main-paragraph">
+                At the heart of our data-driven journey stands Dr. Tsaban from Peres Academic Center, a luminary in the academic world whose groundbreaking contributions have revolutionized data analytics. 🌟 Dr. Tsaban's pioneering research and innovative methodologies have not only elevated the standards of academia but also inspired countless professionals and students alike. Their work at Peres Academic Center has become a beacon of excellence, bridging theoretical insights with practical applications, and empowering us to uncover hidden patterns in data with precision and creativity. 🙌 This platform proudly showcases analytics inspired by such academic giants, bringing you cutting-edge visualizations and insights!
+            </p>
+        </div>
+
+        <div class="section" id="dashboard">
+            <h2>Interactive Tableau Dashboard <span class="emoji-spin">📊</span></h2>
+            <p>Explore our amazing data visualizations below! 🎉</p>
+            <div class="tableau-container">
+                <div id="tableauViz"></div>
+            </div>
+        </div>
+
+        <div class="section" id="insights">
+            <h2>Key Insights ✨</h2>
+            <ul>
+                <li>📈 Sales increased by 25% this quarter!</li>
+                <li>🌍 Top regions showing growth</li>
+                <li>💰 Revenue trends looking awesome!</li>
+            </ul>
+        </div>
+
+        <div class="section" id="trends">
+            <h2>Data Trends 📅</h2>
+            <p>Discover the latest patterns in our analytics! 🔍</p>
+        </div>
+
+        <div class="section" id="about">
+            <h2>About Us 😊</h2>
+            <p>We're a team of data enthusiasts bringing you the coolest insights! 🚀</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Data Analytics Hub | Made with ❤️ & ☕</p>
+    </footer>
+
+    <script src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
+    <script>
+        // Tableau JavaScript API Embed
+        document.addEventListener('DOMContentLoaded', () => {
+            const placeholderDiv = document.getElementById('tableauViz');
+            const url = 'https://public.tableau.com/views/SausageNewLetsPray/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link';
+            const options = {
+                width: '100%',
+                height: '100%',
+                hideTabs: true,
+                hideToolbar: true,
+                onFirstInteractive: () => {
+                    console.log('Tableau dashboard loaded successfully!');
+                }
+            };
+            const viz = new tableau.Viz(placeholderDiv, url, options);
+
+            // Smooth scrolling for nav links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = document.querySelector(this.getAttribute('href'));
+                    section.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Hover effect for sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.addEventListener('mouseenter', () => {
+                    section.style.transform = 'scale(1.02)';
+                    section.style.transition = 'transform 0.3s ease';
+                });
+                section.addEventListener('mouseleave', () => {
+                    section.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
